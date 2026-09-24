@@ -1,0 +1,11 @@
+@use "variables" as *;
+@use "mixins" as *;
+@use "reset";
+@use "components";
+
+body {
+  min-height: 100vh;
+  font-family: $font-family-base;
+  color: $color-primary-dark;
+  background-color: $color-background;
+}
