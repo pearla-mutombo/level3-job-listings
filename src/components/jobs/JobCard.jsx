@@ -1,4 +1,32 @@
-function JobCard({ job }) {
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
+import { deleteJob } from "../../services/jobs";
+
+function JobCard({ job, onJobDeleted }) {
+  const { user } = useAuth();
+  const [deleteError, setDeleteError] = useState("");
+  const isOwner = user?.id === job.user_id;
+
+  async function handleDelete() {
+    const confirmed = window.confirm(
+      `Are you sure you want to delete ${job.position} at ${job.company}?`,
+    );
+
+    if (!confirmed) {
+      return;
+    }
+
+    setDeleteError("");
+
+    try {
+      await deleteJob(job.id);
+      await onJobDeleted();
+    } catch (err) {
+      setDeleteError(err.message);
+    }
+  }
+
   return (
     <article className="job-card">
       {job.logo_url && (
@@ -36,6 +64,17 @@ function JobCard({ job }) {
           </span>
         ))}
       </div>
+
+      {deleteError && <p role="alert">{deleteError}</p>}
+
+      {isOwner && (
+        <div className="job-card__actions">
+          <Link to={`/jobs/${job.id}/edit`}>Edit</Link>
+          <button type="button" onClick={handleDelete}>
+            Delete
+          </button>
+        </div>
+      )}
     </article>
   );
 }
