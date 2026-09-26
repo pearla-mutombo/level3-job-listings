@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import JobForm from "../components/jobs/JobForm";
+import { useAuth } from "../hooks/useAuth";
 import { getJobById, updateJob } from "../services/jobs";
 
 function EditJob() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { user, loading: authLoading } = useAuth();
 
   const [job, setJob] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -13,11 +15,21 @@ function EditJob() {
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
+    if (authLoading || !user) {
+      return;
+    }
+
     async function loadJob() {
       try {
         setError("");
 
         const data = await getJobById(id);
+
+        if (data.user_id !== user.id) {
+          setError("You can only edit your own job listings.");
+          return;
+        }
+
         setJob(data);
       } catch (err) {
         setError(err.message);
@@ -27,7 +39,7 @@ function EditJob() {
     }
 
     loadJob();
-  }, [id]);
+  }, [id, user, authLoading]);
 
   async function handleUpdateJob(jobData) {
     try {
@@ -42,6 +54,7 @@ function EditJob() {
       setSubmitting(false);
     }
   }
+
   // EditJob loading state
   if (loading) {
     return (
@@ -50,6 +63,7 @@ function EditJob() {
       </main>
     );
   }
+
   // EditJob error state
   if (error) {
     return (
@@ -58,6 +72,7 @@ function EditJob() {
       </main>
     );
   }
+
   // EditJob form
   return (
     <main>
