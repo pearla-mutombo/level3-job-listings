@@ -1,39 +1,35 @@
-import { useJobs } from "./hooks/useJobs";
-import JobList from "./components/jobs/JobList";
+import { Route, Routes } from "react-router-dom";
+import Layout from "./components/layout/Layout";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
+import CreateJob from "./pages/CreateJob";
+import EditJob from "./pages/EditJob";
 
 function App() {
-  const { jobs, loading, error } = useJobs();
-
-  if (loading) {
-    return (
-      <main>
-        <p>Loading jobs...</p>
-      </main>
-    );
-  }
-
-  if (error) {
-    return (
-      <main>
-        <p role="alert">Unable to load jobs: {error}</p>
-      </main>
-    );
-  }
-  if (jobs.length === 0) {
-    return (
-      <main>
-        <h1>Job Listings</h1>
-        <p>No job listings are available yet.</p>
-      </main>
-    );
-  }
-
   return (
-    <main>
-      <h1>Job Listings</h1>
-      <p>{jobs.length} job listings found.</p>
-      <JobList jobs={jobs} />
-    </main>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/jobs/new"
+          element={
+            <ProtectedRoute>
+              <CreateJob />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/jobs/:id/edit"
+          element={
+            <ProtectedRoute>
+              <EditJob />
+            </ProtectedRoute>
+          }
+        />
+      </Route>
+    </Routes>
   );
 }
 
