@@ -31,4 +31,15 @@ describe("JobForm", () => {
       }),
     );
   });
+
+  test("does not submit when required fields are empty", async () => {
+    const user = userEvent.setup();
+    const handleSubmit = vi.fn();
+
+    render(<JobForm onSubmit={handleSubmit} submitting={false} />);
+
+    await user.click(screen.getByRole("button", { name: "Publish Job" }));
+
+    expect(handleSubmit).not.toHaveBeenCalled();
+  });
 });
