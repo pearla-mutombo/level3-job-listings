@@ -5,21 +5,21 @@ import { createJob } from "../services/jobs";
 function CreateJob() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const [submitting, setsubmitting] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [resetKey, setResetKey] = useState(0);
 
   async function handleCreateJob(jobData) {
     try {
       setError("");
       setSuccess("");
-      setsubmitting(true);
+      setSubmitting(true);
       await createJob(jobData);
       setSuccess("Job listing created successfully!");
       setResetKey((currentKey) => currentKey + 1);
     } catch (err) {
       setError(err.message);
     } finally {
-      setsubmitting(false);
+      setSubmitting(false);
     }
   }
   return (
