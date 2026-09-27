@@ -29,12 +29,16 @@ function JobCard({ job, onJobDeleted }) {
 
   return (
     <article className="job-card">
-      {job.logo_url && (
+      {job.logo_url ? (
         <img
           className="job-card__logo"
           src={job.logo_url}
           alt={`${job.company} logo`}
         />
+      ) : (
+        <div className="job-card__logo-placeholder" aria-hidden="true">
+          {job.company.charAt(0)}
+        </div>
       )}
 
       <h2 className="job-card__position">{job.position}</h2>
