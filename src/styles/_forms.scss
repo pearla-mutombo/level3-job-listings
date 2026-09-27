@@ -1,0 +1,121 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// Create and edit job page
+// I created a reusable page container
+// with a maximum width and responsive horizontal padding
+// so the form pages stay aligned and readable
+// on both smaller and larger screens.
+.job-page {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: $spacing-xl $spacing-md;
+
+  h1 {
+    margin-bottom: $spacing-xs;
+    color: $color-primary-dark;
+  }
+
+  > p {
+    color: $color-dark-gray;
+  }
+
+  @include tablet-up {
+    padding-right: $spacing-lg;
+    padding-left: $spacing-lg;
+  }
+}
+
+// Create and edit job form
+.job-form {
+  display: grid;
+  gap: $spacing-md;
+  max-width: 46rem;
+  margin: $spacing-lg auto $spacing-xl;
+  padding: $spacing-lg;
+  background-color: $color-white;
+  border: 1px solid $color-light-gray;
+  border-radius: 0.75rem;
+  box-shadow: $card-shadow;
+
+  h2 {
+    margin-bottom: 0;
+    color: $color-primary-dark;
+    font-size: 1.5rem;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+
+    label {
+      color: $color-primary-dark;
+      font-weight: 700;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 0.75rem;
+      color: $color-primary-dark;
+      background-color: $color-white;
+      border: 1px solid $color-light-gray;
+      border-radius: $border-radius;
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+      &:hover {
+        border-color: $color-primary;
+      }
+
+      &:focus-visible {
+        outline: none;
+        border-color: $color-primary;
+        box-shadow: 0 0 0 3px rgba(0, 184, 169, 0.2);
+      }
+    }
+
+    input[type="checkbox"] {
+      width: auto;
+      accent-color: $color-primary;
+    }
+  }
+
+  &__submit {
+    padding: 0.75rem $spacing-md;
+    color: $color-white;
+    background-color: $color-primary;
+    border: 1px solid $color-primary;
+    border-radius: $border-radius;
+    font-weight: 700;
+    transition:
+      background-color 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &:hover:not(:disabled) {
+      background-color: $color-primary-dark;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-primary;
+      outline-offset: 3px;
+      box-shadow: 0 0 0.75rem rgba(0, 184, 169, 0.3);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.65;
+    }
+  }
+
+  @include tablet-up {
+    grid-template-columns: repeat(2, 1fr);
+
+    h2,
+    &__submit {
+      grid-column: 1 / -1;
+    }
+  }
+}

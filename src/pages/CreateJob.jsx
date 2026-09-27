@@ -23,7 +23,7 @@ function CreateJob() {
     }
   }
   return (
-    <main>
+    <main className="job-page">
       <h1>Create Job</h1>
       <p>Add a new job listing to ViaNova.</p>
 

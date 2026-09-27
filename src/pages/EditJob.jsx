@@ -75,7 +75,7 @@ function EditJob() {
 
   // EditJob form
   return (
-    <main>
+    <main className="job-page">
       <h1>Edit Job</h1>
       <p>Update your job listing.</p>
 

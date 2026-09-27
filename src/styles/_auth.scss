@@ -1,0 +1,116 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// Sign-in page
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: $spacing-xl $spacing-md;
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(118, 87, 214, 0.12),
+      transparent 35%
+    ),
+    $color-background;
+
+  &__card {
+    width: 100%;
+    max-width: 30rem;
+    padding: $spacing-lg;
+    background-color: $color-white;
+    border: 1px solid $color-light-gray;
+    border-radius: 0.75rem;
+    box-shadow: $card-shadow;
+
+    h1 {
+      margin-bottom: $spacing-xs;
+      color: $color-primary-dark;
+      font-size: 2rem;
+    }
+
+    p {
+      color: $color-dark-gray;
+      line-height: 1.6;
+    }
+  }
+
+  @include tablet-up {
+    padding-right: $spacing-lg;
+    padding-left: $spacing-lg;
+  }
+}
+
+// Sign-in form
+.login-form {
+  display: grid;
+  gap: $spacing-md;
+  margin-top: $spacing-lg;
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+
+    label {
+      color: $color-primary-dark;
+      font-weight: 700;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      color: $color-primary-dark;
+      background-color: $color-white;
+      border: 1px solid $color-light-gray;
+      border-radius: $border-radius;
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+      &:hover {
+        border-color: $color-primary;
+      }
+
+      &:focus-visible {
+        outline: none;
+        border-color: $color-primary;
+        box-shadow: 0 0 0 3px rgba(0, 184, 169, 0.2);
+      }
+    }
+  }
+
+  &__error {
+    margin: 0;
+    color: $color-error;
+  }
+
+  button {
+    padding: 0.75rem $spacing-md;
+    color: $color-white;
+    background-color: $color-primary;
+    border: 1px solid $color-primary;
+    border-radius: $border-radius;
+    font-weight: 700;
+    transition:
+      background-color 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &:hover:not(:disabled) {
+      background-color: $color-primary-dark;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-primary;
+      outline-offset: 3px;
+      box-shadow: 0 0 0.75rem rgba(0, 184, 169, 0.3);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.65;
+    }
+  }
+}

@@ -86,8 +86,24 @@ function Home() {
   // Acttive filter, remove one andn clear all - working
   return (
     <main>
-      <h1>Job Listings</h1>
-      <p>{filteredJobs.length} job listings found.</p>
+      <section className="hero">
+        <div className="hero__content">
+          <p className="hero__eyebrow">WELCOME TO VIANOVA</p>
+
+          <h1 className="hero__title">
+            Your next opportunity is waiting beyond the ordinary.
+          </h1>
+
+          <p className="hero__text">
+            Explore new paths. Discover where your skills can take you.
+          </p>
+        </div>
+      </section>
+
+      <section className="jobs-section">
+        <h2>Explore Opportunities</h2>
+        <p>{filteredJobs.length} job listings found.</p>
+      </section>
 
       <JobFilters filters={filters} onFilterChange={handleFilterChange} />
 

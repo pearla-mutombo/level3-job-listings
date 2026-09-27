@@ -192,7 +192,13 @@ function JobForm({ onSubmit, submitting, initialData = null }) {
       </div>
 
       <button type="submit" className="job-form__submit" disabled={submitting}>
-        {submitting ? "Publishing..." : "Publish Job"}
+        {submitting
+          ? initialData
+            ? "Saving..."
+            : "Publishing..."
+          : initialData
+            ? "Save Changes"
+            : "Publish Job"}
       </button>
     </form>
   );

@@ -1,7 +1,12 @@
 @use "variables" as *;
 @use "mixins" as *;
 @use "reset";
-@use "components";
+@use "header";
+@use "hero";
+@use "filters";
+@use "jobs";
+@use "auth";
+@use "forms";
 
 body {
   min-height: 100vh;

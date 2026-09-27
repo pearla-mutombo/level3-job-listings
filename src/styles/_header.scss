@@ -1,0 +1,94 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// ViaNova header
+.header {
+  padding: $spacing-sm $spacing-md;
+  background-color: $color-midnight;
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    color: $color-white;
+    text-decoration: none;
+  }
+
+  &__logo {
+    width: 6rem;
+    height: 6rem;
+    object-fit: contain;
+    transition:
+      transform 0.3s ease,
+      filter 0.3s ease;
+  }
+
+  &__brand:hover &__logo {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 0.75rem rgba(114, 242, 229, 0.45));
+  }
+
+  &__brand-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__brand-name {
+    color: $color-primary-light;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  &__brand-tagline {
+    display: none;
+    color: $color-white;
+    font-size: 0.75rem;
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+
+    a,
+    button {
+      padding: $spacing-xs;
+      color: $color-white;
+      background: none;
+      border: 0;
+      border-radius: $border-radius;
+      text-decoration: none;
+      transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+      &:hover {
+        color: $color-primary-light;
+        background-color: $color-midnight-light;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $color-primary-light;
+        outline-offset: 3px;
+        box-shadow: 0 0 0.75rem rgba(114, 242, 229, 0.45);
+      }
+    }
+  }
+
+  @include tablet-up {
+    padding: $spacing-md $spacing-lg;
+
+    &__brand-tagline {
+      display: block;
+    }
+  }
+}
