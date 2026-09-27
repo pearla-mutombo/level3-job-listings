@@ -61,7 +61,7 @@ function Home() {
 
   if (loading) {
     return (
-      <main>
+      <main className="status-page">
         <p>Loading jobs...</p>
       </main>
     );
@@ -69,7 +69,7 @@ function Home() {
 
   if (error) {
     return (
-      <main>
+      <main className="status-page">
         <p role="alert">Unable to load jobs: {error}</p>
       </main>
     );
@@ -77,13 +77,13 @@ function Home() {
 
   if (jobs.length === 0) {
     return (
-      <main>
+      <main className="status-page">
         <h1>Job Listings</h1>
         <p>No job listings are available yet.</p>
       </main>
     );
   }
-  // Acttive filter, remove one andn clear all - working
+  // Active filters, remove one, and clear all
   return (
     <main>
       <section className="hero">
@@ -128,7 +128,7 @@ function Home() {
       )}
 
       {filteredJobs.length === 0 ? (
-        <p>No jobs match your selected filters.</p>
+        <p className="no-results">No jobs match your selected filters.</p>
       ) : (
         <JobList jobs={filteredJobs} onJobDeleted={handleJobDeleted} />
       )}

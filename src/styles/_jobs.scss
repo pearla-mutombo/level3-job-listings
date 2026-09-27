@@ -176,3 +176,29 @@
     }
   }
 }
+
+// Loading, error, and empty data states
+.status-page {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: $spacing-xl $spacing-md;
+  text-align: center;
+
+  h1 {
+    margin-bottom: $spacing-sm;
+    color: $color-primary-dark;
+  }
+
+  p {
+    color: $color-dark-gray;
+  }
+}
+
+// Message shown when the selected filters have no matching jobs
+.no-results {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: $spacing-lg $spacing-md $spacing-xl;
+  color: $color-dark-gray;
+  text-align: center;
+}
