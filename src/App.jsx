@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import CreateJob from "./pages/CreateJob";
 import EditJob from "./pages/EditJob";
+import Page404 from "./pages/Page404";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="*" element={<Page404 />} />
       </Route>
     </Routes>
   );

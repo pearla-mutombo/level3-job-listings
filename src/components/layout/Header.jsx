@@ -1,3 +1,4 @@
+import vianovaLogo from "../../assets/vianova-logo.png";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { supabase } from "../../lib/supabase";
@@ -13,7 +14,19 @@ function Header() {
     <header className="header">
       <nav className="header__nav" aria-label="Main navigation">
         <Link className="header__brand" to="/">
-          Job Board
+          <img
+            className="header__logo"
+            src={vianovaLogo}
+            alt=""
+            aria-hidden="true"
+          />
+
+          <span className="header__brand-text">
+            <span className="header__brand-name">ViaNova</span>
+            <span className="header__brand-tagline">
+              Find the path to what comes next.
+            </span>
+          </span>
         </Link>
 
         <div className="header__links">

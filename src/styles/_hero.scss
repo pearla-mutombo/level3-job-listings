@@ -1,0 +1,53 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// ViaNova hero
+.hero {
+  padding: $spacing-xl $spacing-md;
+  color: $color-white;
+  background:
+    radial-gradient(
+      circle at 75% 50%,
+      rgba(118, 87, 214, 0.35),
+      transparent 35%
+    ),
+    radial-gradient(circle at 65% 40%, rgba(0, 184, 169, 0.3), transparent 30%),
+    linear-gradient(
+      135deg,
+      $color-midnight 0%,
+      $color-midnight-light 55%,
+      #102c3d 100%
+    );
+
+  &__content {
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+
+  &__eyebrow {
+    margin-bottom: $spacing-sm;
+    color: $color-primary-light;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+  }
+
+  &__title {
+    max-width: 46rem;
+    margin-bottom: $spacing-sm;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+  }
+
+  &__text {
+    max-width: 38rem;
+    margin-bottom: 0;
+    color: $color-white;
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  @include tablet-up {
+    padding: 5rem $spacing-lg;
+  }
+}

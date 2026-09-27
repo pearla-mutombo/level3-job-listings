@@ -1,0 +1,16 @@
+user_id,company,logo_url,position,role,level,contract,location,languages,tools,is_new,is_featured
+4d58cd42-b574-4abc-b832-7a575dd3a294,Northstar Labs,,Senior Frontend Engineer,Frontend,Senior,Full Time,Remote,"[""HTML"",""CSS"",""JavaScript""]","[""React"",""Sass""]",TRUE,TRUE
+4d58cd42-b574-4abc-b832-7a575dd3a294,Cedar Systems,,Junior Backend Developer,Backend,Junior,Contract,USA Only,"[""Python""]","[""Django""]",TRUE,FALSE
+4d58cd42-b574-4abc-b832-7a575dd3a294,Vista Works,,Fullstack Developer,Fullstack,Midweight,Full Time,Worldwide,"[""JavaScript"",""Ruby""]","[""React"",""RoR""]",FALSE,FALSE
+4d58cd42-b574-4abc-b832-7a575dd3a294,Pixel Forge,,Junior Frontend Developer,Frontend,Junior,Part Time,Remote,"[""HTML"",""CSS"",""JavaScript""]","[""Vue"",""Sass""]",FALSE,FALSE
+4d58cd42-b574-4abc-b832-7a575dd3a294,Atlas Cloud,,Senior Backend Engineer,Backend,Senior,Full Time,UK Only,"[""Python"",""Ruby""]","[""Django""]",FALSE,TRUE
+4d58cd42-b574-4abc-b832-7a575dd3a294,BrightPath,,Midweight Frontend Developer,Frontend,Midweight,Contract,Canada Only,"[""HTML"",""CSS"",""JavaScript""]","[""Vue""]",FALSE,FALSE
+4d58cd42-b574-4abc-b832-7a575dd3a294,Riverbend Tech,,Junior Fullstack Developer,Fullstack,Junior,Full Time,Remote,"[""JavaScript"",""Python""]","[""React"",""Django""]",TRUE,FALSE
+4d58cd42-b574-4abc-b832-7a575dd3a294,Summit Data,,Senior Backend Developer,Backend,Senior,Contract,Worldwide,"[""Ruby"",""Python""]","[""RoR""]",FALSE,TRUE
+4d58cd42-b574-4abc-b832-7a575dd3a294,Harbor Digital,,Frontend UI Engineer,Frontend,Midweight,Part Time,Remote,"[""HTML"",""CSS"",""JavaScript""]","[""React"",""Sass""]",FALSE,FALSE
+4d58cd42-b574-4abc-b832-7a575dd3a294,Pinecone Apps,,Fullstack Engineer,Fullstack,Senior,Full Time,USA Only,"[""JavaScript"",""Python""]","[""React"",""Django""]",FALSE,FALSE
+4d58cd42-b574-4abc-b832-7a575dd3a294,Bluebird Studio,,Junior Frontend Developer,Frontend,Junior,Contract,Worldwide,"[""HTML"",""CSS""]","[""Sass""]",TRUE,FALSE
+4d58cd42-b574-4abc-b832-7a575dd3a294,Ember Systems,,Backend API Engineer,Backend,Midweight,Full Time,Remote,"[""Python""]","[""Django""]",FALSE,FALSE
+4d58cd42-b574-4abc-b832-7a575dd3a294,Meadow Labs,,Fullstack Product Developer,Fullstack,Midweight,Part Time,UK Only,"[""JavaScript"",""Ruby""]","[""Vue"",""RoR""]",FALSE,FALSE
+4d58cd42-b574-4abc-b832-7a575dd3a294,Orbit Works,,Senior Frontend Developer,Frontend,Senior,Full Time,Worldwide,"[""JavaScript"",""HTML""]","[""React""]",FALSE,TRUE
+4d58cd42-b574-4abc-b832-7a575dd3a294,Willow Code,,Junior Backend Engineer,Backend,Junior,Part Time,Remote,"[""Ruby""]","[""RoR""]",FALSE,FALSE

@@ -58,7 +58,7 @@ function EditJob() {
   // EditJob loading state
   if (loading) {
     return (
-      <main>
+      <main className="status-page">
         <p>Loading job...</p>
       </main>
     );
@@ -67,7 +67,7 @@ function EditJob() {
   // EditJob error state
   if (error) {
     return (
-      <main>
+      <main className="status-page">
         <p role="alert">Unable to load job: {error}</p>
       </main>
     );
@@ -75,7 +75,7 @@ function EditJob() {
 
   // EditJob form
   return (
-    <main>
+    <main className="job-page">
       <h1>Edit Job</h1>
       <p>Update your job listing.</p>
 

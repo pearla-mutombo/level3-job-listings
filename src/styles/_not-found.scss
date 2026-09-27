@@ -1,0 +1,88 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// ViaNova 404 page
+.not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 75vh;
+  padding: $spacing-xl $spacing-md;
+  text-align: center;
+  color: $color-white;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(0, 184, 169, 0.3), transparent 25%),
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(118, 87, 214, 0.25),
+      transparent 45%
+    ),
+    linear-gradient(
+      135deg,
+      $color-midnight 0%,
+      $color-midnight-light 55%,
+      #102c3d 100%
+    );
+
+  &__content {
+    width: 100%;
+    max-width: 42rem;
+    padding: $spacing-lg;
+  }
+
+  &__code {
+    margin-bottom: $spacing-sm;
+    color: $color-primary-light;
+    font-size: clamp(5rem, 18vw, 10rem);
+    font-weight: 700;
+    line-height: 1;
+    text-shadow:
+      0 0 1rem rgba(114, 242, 229, 0.45),
+      0 0 2.5rem rgba(118, 87, 214, 0.35);
+  }
+
+  h1 {
+    margin-bottom: $spacing-md;
+    font-size: clamp(1.75rem, 5vw, 2.75rem);
+    line-height: 1.2;
+  }
+
+  &__message {
+    max-width: 34rem;
+    margin: 0 auto $spacing-lg;
+    color: $color-white;
+    line-height: 1.7;
+  }
+
+  &__link {
+    display: inline-block;
+    padding: 0.75rem $spacing-lg;
+    color: $color-midnight;
+    background-color: $color-primary-light;
+    border: 1px solid $color-primary-light;
+    border-radius: $border-radius;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      background-color 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-0.15rem);
+      background-color: $color-white;
+      box-shadow: 0 0 1.25rem rgba(114, 242, 229, 0.45);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-white;
+      outline-offset: 4px;
+      box-shadow: 0 0 1.25rem rgba(114, 242, 229, 0.55);
+    }
+  }
+
+  @include tablet-up {
+    padding-right: $spacing-lg;
+    padding-left: $spacing-lg;
+  }
+}
