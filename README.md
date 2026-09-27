@@ -98,7 +98,9 @@ Edit and Delete controls are displayed only when the signed-in user owns the job
 
 ## Live Demo
 
-The Netlify deployment URL will be added here after the final production deployment.
+The deployed ViaNova application is available here:
+
+https://vianova-job-listings.netlify.app
 
 ## Technologies
 
