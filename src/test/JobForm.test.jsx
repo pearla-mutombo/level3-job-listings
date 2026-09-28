@@ -42,4 +42,19 @@ describe("JobForm", () => {
 
     expect(handleSubmit).not.toHaveBeenCalled();
   });
+
+  test("does not submit when required fields contain only spaces", async () => {
+    const user = userEvent.setup();
+    const handleSubmit = vi.fn();
+
+    render(<JobForm onSubmit={handleSubmit} submitting={false} />);
+
+    await user.type(screen.getByLabelText("Company"), "   ");
+    await user.type(screen.getByLabelText("Position"), "   ");
+    await user.type(screen.getByLabelText("Location"), "   ");
+
+    await user.click(screen.getByRole("button", { name: "Publish Job" }));
+
+    expect(handleSubmit).not.toHaveBeenCalled();
+  });
 });

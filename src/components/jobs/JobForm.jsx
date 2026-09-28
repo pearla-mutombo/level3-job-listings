@@ -26,6 +26,13 @@ function JobForm({ onSubmit, submitting, initialData = null }) {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    if (
+      !formData.company.trim() ||
+      !formData.position.trim() ||
+      !formData.location.trim()
+    ) {
+      return;
+    }
     const jobData = {
       ...formData,
       company: formData.company.trim(),
