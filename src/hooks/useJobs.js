@@ -48,10 +48,15 @@ export function useJobs() {
     };
   }, []);
 
+  function clearError() {
+    setError(null);
+  }
+
   return {
     jobs,
     loading,
     error,
     loadJobs,
+    clearError,
   };
 }
