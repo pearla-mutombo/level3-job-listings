@@ -102,7 +102,10 @@ function Home() {
 
       <section className="jobs-section">
         <h2>Explore Opportunities</h2>
-        <p>{filteredJobs.length} job listings found.</p>
+        <p>
+          {filteredJobs.length} job{" "}
+          {filteredJobs.length === 1 ? "listing" : "listings"} found.
+        </p>
       </section>
 
       <JobFilters filters={filters} onFilterChange={handleFilterChange} />

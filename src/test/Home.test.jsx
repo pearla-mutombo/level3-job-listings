@@ -86,6 +86,6 @@ describe("Home filtering", () => {
       screen.queryByText("Junior Frontend Developer"),
     ).not.toBeInTheDocument();
 
-    expect(screen.getByText("1 job listings found.")).toBeInTheDocument();
+    expect(screen.getByText("1 job listing found.")).toBeInTheDocument();
   });
 });
