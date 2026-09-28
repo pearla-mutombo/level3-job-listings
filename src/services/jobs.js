@@ -7,7 +7,7 @@ export async function getJobs() {
     .order("created_at", { ascending: false });
 
   if (error) {
-    throw error;
+    throw new Error(`Unable to load job listings: ${error.message}`);
   }
 
   return data;
