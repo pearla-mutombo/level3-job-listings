@@ -57,4 +57,14 @@ describe("JobForm", () => {
 
     expect(handleSubmit).not.toHaveBeenCalled();
   });
+
+  test("shows a disabled publishing button while submitting", () => {
+    render(<JobForm onSubmit={vi.fn()} submitting={true} />);
+
+    const submitButton = screen.getByRole("button", {
+      name: "Publishing...",
+    });
+
+    expect(submitButton).toBeDisabled();
+  });
 });
