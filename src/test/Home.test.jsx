@@ -3,6 +3,8 @@ import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
 import Home from "../pages/Home";
 
+let mockLoading = false;
+
 vi.mock("../hooks/useJobs", () => ({
   useJobs: () => ({
     jobs: [
@@ -52,7 +54,7 @@ vi.mock("../hooks/useJobs", () => ({
         is_featured: false,
       },
     ],
-    loading: false,
+    loading: mockLoading,
     error: null,
     loadJobs: vi.fn(),
   }),
@@ -87,5 +89,19 @@ describe("Home filtering", () => {
     ).not.toBeInTheDocument();
 
     expect(screen.getByText("1 job listing found.")).toBeInTheDocument();
+  });
+
+  test("changes from loading to showing the job listings", () => {
+    mockLoading = true;
+
+    const { rerender } = render(<Home />);
+
+    expect(screen.getByText("Loading jobs...")).toBeInTheDocument();
+
+    mockLoading = false;
+    rerender(<Home />);
+
+    expect(screen.getByText("Senior Frontend Engineer")).toBeInTheDocument();
+    expect(screen.queryByText("Loading jobs...")).not.toBeInTheDocument();
   });
 });
