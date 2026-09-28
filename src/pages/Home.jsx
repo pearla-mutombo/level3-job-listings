@@ -135,7 +135,13 @@ function Home() {
       )}
 
       {filteredJobs.length === 0 ? (
-        <p className="no-results">No jobs match your selected filters.</p>
+        <div className="no-results">
+          <p>No jobs match your selected filters.</p>
+
+          <button type="button" onClick={clearFilters}>
+            Clear Filters
+          </button>
+        </div>
       ) : (
         <JobList jobs={filteredJobs} onJobDeleted={handleJobDeleted} />
       )}
