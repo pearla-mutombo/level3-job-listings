@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { supabase } from "../../lib/supabase";
 
-function Header() {
+function Header({ title }) {
   const { user, loading } = useAuth();
 
   async function handleSignOut() {
@@ -22,7 +22,7 @@ function Header() {
           />
 
           <span className="header__brand-text">
-            <span className="header__brand-name">ViaNova</span>
+            <span className="header__brand-name">{title}</span>
             <span className="header__brand-tagline">
               Find the path to what comes next.
             </span>
