@@ -57,9 +57,17 @@ export async function updateJob(id, updates) {
 }
 // CRUD : Delete
 export async function deleteJob(id) {
-  const { error } = await supabase.from("job_listings").delete().eq("id", id);
+  const { data, error } = await supabase
+    .from("job_listings")
+    .delete()
+    .eq("id", id)
+    .select();
 
   if (error) {
     throw error;
+  }
+
+  if (data.length === 0) {
+    throw new Error("No job listing was deleted.");
   }
 }
