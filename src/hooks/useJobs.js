@@ -21,18 +21,31 @@ export function useJobs() {
   }
 
   useEffect(() => {
+    let isActive = true;
+
     async function fetchInitialJobs() {
       try {
         const data = await getJobs();
-        setJobs(data);
+
+        if (isActive) {
+          setJobs(data);
+        }
       } catch (err) {
-        setError(err.message);
+        if (isActive) {
+          setError(err.message);
+        }
       } finally {
-        setLoading(false);
+        if (isActive) {
+          setLoading(false);
+        }
       }
     }
 
     fetchInitialJobs();
+
+    return () => {
+      isActive = false;
+    };
   }, []);
 
   return {
