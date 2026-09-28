@@ -1,13 +1,15 @@
 import vianovaLogo from "../../assets/vianova-logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { supabase } from "../../lib/supabase";
 
 function Header({ title }) {
   const { user, loading } = useAuth();
+  const navigate = useNavigate();
 
   async function handleSignOut() {
     await supabase.auth.signOut();
+    navigate("/");
   }
 
   return (
