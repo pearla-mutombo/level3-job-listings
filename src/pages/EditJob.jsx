@@ -59,7 +59,7 @@ function EditJob() {
   if (loading) {
     return (
       <main className="status-page">
-        <p>Loading job...</p>
+        <p role="status">Loading job...</p>
       </main>
     );
   }
