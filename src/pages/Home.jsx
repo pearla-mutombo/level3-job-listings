@@ -71,6 +71,10 @@ function Home() {
     return (
       <main className="status-page">
         <p role="alert">Unable to load jobs: {error}</p>
+
+        <button type="button" onClick={loadJobs}>
+          Try Again
+        </button>
       </main>
     );
   }
